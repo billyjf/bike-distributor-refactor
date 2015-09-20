@@ -22,6 +22,35 @@ namespace BikeDistributor
             _lines.Add(line);
         }
 
+        private double CalculateAmountPlusDiscount(Bike bike, int quantity)
+        {
+            var amountWithDiscount = 0d;
+
+            switch (bike.Price)
+            {
+                case Bike.OneThousand:
+                    if (quantity >= 20)
+                        amountWithDiscount += quantity * bike.Price * .9d;
+                    else
+                        amountWithDiscount += quantity * bike.Price;
+                    break;
+                case Bike.TwoThousand:
+                    if (quantity >= 10)
+                        amountWithDiscount += quantity * bike.Price * .8d;
+                    else
+                        amountWithDiscount += quantity * bike.Price;
+                    break;
+                case Bike.FiveThousand:
+                    if (quantity >= 5)
+                        amountWithDiscount += quantity * bike.Price * .8d;
+                    else
+                        amountWithDiscount += quantity * bike.Price;
+                    break;
+            }
+
+            return amountWithDiscount;
+        }
+
         public string Receipt()
         {
             var totalAmount = 0d;
@@ -29,27 +58,7 @@ namespace BikeDistributor
             foreach (var line in _lines)
             {
                 var thisAmount = 0d;
-                switch (line.Bike.Price)
-                {
-                    case Bike.OneThousand:
-                        if (line.Quantity >= 20)
-                            thisAmount += line.Quantity * line.Bike.Price * .9d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                    case Bike.TwoThousand:
-                        if (line.Quantity >= 10)
-                            thisAmount += line.Quantity * line.Bike.Price * .8d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                    case Bike.FiveThousand:
-                        if (line.Quantity >= 5)
-                            thisAmount += line.Quantity * line.Bike.Price * .8d;
-                        else
-                            thisAmount += line.Quantity * line.Bike.Price;
-                        break;
-                }
+                thisAmount += CalculateAmountPlusDiscount(line.Bike, line.Quantity);
                 reportLines.Add(line, thisAmount.ToString("C"));
                 totalAmount += thisAmount;
             }
@@ -75,27 +84,7 @@ namespace BikeDistributor
                 foreach (var line in _lines)
                 {
                     var thisAmount = 0d;
-                    switch (line.Bike.Price)
-                    {
-                        case Bike.OneThousand:
-                            if (line.Quantity >= 20)
-                                thisAmount += line.Quantity*line.Bike.Price*.9d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                        case Bike.TwoThousand:
-                            if (line.Quantity >= 10)
-                                thisAmount += line.Quantity*line.Bike.Price*.8d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                        case Bike.FiveThousand:
-                            if (line.Quantity >= 5)
-                                thisAmount += line.Quantity*line.Bike.Price*.8d;
-                            else
-                                thisAmount += line.Quantity*line.Bike.Price;
-                            break;
-                    }
+                    thisAmount += CalculateAmountPlusDiscount(line.Bike, line.Quantity);
                     reportLines.Add(line, thisAmount.ToString("C"));
                     totalAmount += thisAmount;
                 }
