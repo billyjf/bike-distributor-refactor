@@ -48,6 +48,12 @@ namespace BikeDistributor
                     else
                         amountWithDiscount += quantity * bike.Price;
                     break;
+                case Bike.EightThousand:
+                    if (quantity >= 4)
+                        amountWithDiscount += quantity * bike.Price * .8d;
+                    else
+                        amountWithDiscount += quantity * bike.Price;
+                    break;
             }
 
             return amountWithDiscount;

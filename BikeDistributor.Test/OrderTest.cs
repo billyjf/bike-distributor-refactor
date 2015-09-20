@@ -11,6 +11,7 @@ namespace BikeDistributor.Test
         private readonly static Bike Elite = new Bike("Specialized", "Venge Elite", Bike.TwoThousand);
         private readonly static Bike DuraAce = new Bike("Specialized", "S-Works Venge Dura-Ace", Bike.FiveThousand);
         private readonly static Bike F1 = new Bike("Felt", "F1", Bike.FiveThousand);
+        private readonly static Bike S5 = new Bike("Cervelo", "S5 Dura-Ace", Bike.EightThousand);
 
         [TestMethod]
         public void ReceiptOneDefy()
@@ -109,6 +110,30 @@ namespace BikeDistributor.Test
         }
 
         [TestMethod]
+        public void ReceiptFiveS5Discount()
+        {
+            var company = "Anywhere Bike Shop";
+            var order = new Order(company);
+            var quantity = 5;
+            var testLine = new Line(S5, quantity);
+            order.AddLine(testLine);
+
+            var check_receipt_against =
+                new TextReceipt(new ReceiptData(company,
+                                                "$32,000.00",
+                                                new TupleList<Line, string> {
+                                                    {
+                                                        testLine,
+                                                        "$32,000.00"
+                                                    }
+                                                },
+                                                "$2,320.00",
+                                                "$34,320.00")).TransformText();
+
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+        }
+
+        [TestMethod]
         public void HtmlReceiptOneDefy()
         {
             var company = "Anywhere Bike Shop";
@@ -200,6 +225,30 @@ namespace BikeDistributor.Test
                                                 },
                                                 "$1,450.00",
                                                 "$21,450.00")).TransformText();
+
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+        }
+
+        [TestMethod]
+        public void HtmlReceiptFiveS5Discount()
+        {
+            var company = "Anywhere Bike Shop";
+            var order = new Order(company);
+            var quantity = 5;
+            var testLine = new Line(S5, quantity);
+            order.AddLine(testLine);
+
+            var check_receipt_against =
+                new HtmlReceipt(new ReceiptData(company,
+                                                "$32,000.00",
+                                                new TupleList<Line, string> {
+                                                    {
+                                                        testLine,
+                                                        "$32,000.00"
+                                                    }
+                                                },
+                                                "$2,320.00",
+                                                "$34,320.00")).TransformText();
 
             Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
         }
