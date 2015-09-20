@@ -30,7 +30,7 @@ namespace BikeDistributor.Test
                                                     "$72.50",
                                                     "$1,072.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace BikeDistributor.Test
                                                     "$145.00",
                                                     "$2,145.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@ namespace BikeDistributor.Test
                                                     "$362.50",
                                                     "$5,362.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -96,7 +96,7 @@ namespace BikeDistributor.Test
                                                     "$72.50",
                                                     "$1,072.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.HtmlReceipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -118,7 +118,7 @@ namespace BikeDistributor.Test
                                                     "$145.00",
                                                     "$2,145.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.HtmlReceipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -140,7 +140,7 @@ namespace BikeDistributor.Test
                                                     "$362.50",
                                                     "$5,362.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.HtmlReceipt());
+            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
         }
     }
 }

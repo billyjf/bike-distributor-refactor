@@ -7,6 +7,8 @@ namespace BikeDistributor
 {
     public class Order
     {
+        public enum Format { Text, HTML };
+
         private const double TaxRate = .0725d;
         private readonly IList<Line> _lines = new List<Line>();
 
@@ -51,7 +53,7 @@ namespace BikeDistributor
             return amountWithDiscount;
         }
 
-        public string Receipt()
+        public string Receipt(Format format)
         {
             var totalAmount = 0d;
             var reportLines = new TupleList<Line, string>();
@@ -64,41 +66,17 @@ namespace BikeDistributor
             }
             var tax = totalAmount * TaxRate;
 
-            var receipt = new TextReceipt(new BaseReceiptData(Company,
-                                                              totalAmount.ToString("C"),
-                                                              reportLines,
-                                                              tax.ToString("C"),
-                                                              (totalAmount + tax).ToString("C")));
-            var receiptText = receipt.TransformText();
-
-            return receiptText;
-        }
-
-        public string HtmlReceipt()
-        {
-            var totalAmount = 0d;
-            var reportLines = new TupleList<Line, string>();
-            
-            if (_lines.Any())
-            {
-                foreach (var line in _lines)
-                {
-                    var thisAmount = 0d;
-                    thisAmount += CalculateAmountPlusDiscount(line.Bike, line.Quantity);
-                    reportLines.Add(line, thisAmount.ToString("C"));
-                    totalAmount += thisAmount;
-                }
-            }
-            var tax = totalAmount * TaxRate;
-
-            var receipt = new HtmlReceipt(new BaseReceiptData(Company,
-                                                              totalAmount.ToString("C"),
-                                                              reportLines,
-                                                              tax.ToString("C"),
-                                                              (totalAmount + tax).ToString("C")));
-            var receiptHTML = receipt.TransformText();
-
-            return receiptHTML;
+            var data = new BaseReceiptData(Company,
+                                           totalAmount.ToString("C"),
+                                           reportLines,
+                                           tax.ToString("C"),
+                                           (totalAmount + tax).ToString("C"));
+            if (format == Format.Text)
+                return new TextReceipt(data).TransformText();
+            else if (format == Format.HTML)
+                return new HtmlReceipt(data).TransformText();
+            else
+                throw new Exception("Unsupported format type!");
         }
 
     }
