@@ -17,14 +17,16 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(Defy, 1));
+            var quantity = 1;
+            var testLine = new Line(Defy, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against =
                 new TextReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
                                                         {
-                                                            new Line(Defy, 1),
+                                                            testLine,
                                                             "$1,000.00"
                                                         }
                                                     },
@@ -39,14 +41,16 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(Elite, 1));
+            var quantity = 1;
+            var testLine = new Line(Elite, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against =
                 new TextReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
                                                         {
-                                                            new Line(Elite, 1),
+                                                            testLine,
                                                             "$2,000.00"
                                                         }
                                                     },
@@ -61,14 +65,16 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(DuraAce, 1));
+            var quantity = 1;
+            var testLine = new Line(DuraAce, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against =
                 new TextReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
                                                         {
-                                                            new Line(DuraAce, 1),
+                                                            testLine,
                                                             "$5,000.00"
                                                         }
                                                     },
@@ -107,14 +113,16 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(Defy, 1));
+            var quantity = 1;
+            var testLine = new Line(Defy, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
                                                         {
-                                                            new Line(Defy, 1),
+                                                            testLine,
                                                             "$1,000.00"
                                                         }
                                                     },
@@ -129,14 +137,16 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(Elite, 1));
+            var quantity = 1;
+            var testLine = new Line(Elite, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
                                                         {
-                                                            new Line(Elite, 1),
+                                                            testLine,
                                                             "$2,000.00"
                                                         }
                                                     },
@@ -151,16 +161,18 @@ namespace BikeDistributor.Test
         {
             var company = "Anywhere Bike Shop";
             var order = new Order(company);
-            order.AddLine(new Line(DuraAce, 1));
+            var quantity = 1;
+            var testLine = new Line(DuraAce, quantity);
+            order.AddLine(testLine);
 
             var check_receipt_against = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
-                                                                    {
-                                                                        new Line(DuraAce, 1),
-                                                                        "$5,000.00"
-                                                                    }
+                                                        {
+                                                            testLine,
+                                                            "$5,000.00"
+                                                        }
                                                     },
                                                     "$362.50",
                                                     "$5,362.50")).TransformText();
