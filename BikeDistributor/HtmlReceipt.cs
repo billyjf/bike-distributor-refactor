@@ -31,14 +31,14 @@ namespace BikeDistributor
             this.Write("<html>\r\n<body>\r\n    <h1>Order Receipt for ");
             
             #line 8 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\HtmlReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(m_Company));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_Company));
             
             #line default
             #line hidden
             this.Write("</h1>\r\n    <ul>\r\n        ");
             
             #line 10 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\HtmlReceipt.tt"
- foreach(Tuple<Line, string>line in m_reportLines) { 
+ foreach(Tuple<Line, string>line in data.m_reportLines) { 
             
             #line default
             #line hidden
@@ -80,21 +80,21 @@ namespace BikeDistributor
             this.Write("    </ul>\r\n    <h3>Sub-Total: ");
             
             #line 14 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\HtmlReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(m_totalAmount));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_totalAmount));
             
             #line default
             #line hidden
             this.Write("</h3>\r\n    <h3>Tax: ");
             
             #line 15 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\HtmlReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(m_tax));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_tax));
             
             #line default
             #line hidden
             this.Write("</h3>\r\n    <h2>Total: ");
             
             #line 16 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\HtmlReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(m_total));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_total));
             
             #line default
             #line hidden

@@ -97,11 +97,11 @@ namespace BikeDistributor
             }
             var tax = totalAmount * TaxRate;
 
-            var receipt = new HtmlReceipt(Company,
-                                          totalAmount.ToString("C"),
-                                          reportLines,
-                                          tax.ToString("C"),
-                                          (totalAmount + tax).ToString("C"));
+            var receipt = new HtmlReceipt(new BaseReceiptData(Company,
+                                                              totalAmount.ToString("C"),
+                                                              reportLines,
+                                                              tax.ToString("C"),
+                                                              (totalAmount + tax).ToString("C")));
             var receiptHTML = receipt.TransformText();
 
             return receiptHTML;

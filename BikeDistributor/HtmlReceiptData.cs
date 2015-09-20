@@ -8,23 +8,11 @@ namespace BikeDistributor
 {
     partial class HtmlReceipt
     {
-        private string m_Company;
-        private string m_totalAmount;
-        private TupleList<Line, string> m_reportLines;
-        private string m_tax;
-        private string m_total;
+        private BaseReceiptData data;
 
-        public HtmlReceipt(string company,
-                           string totalAmount,
-                           TupleList<Line, string>reportLines,
-                           string tax,
-                           string total)
+        public HtmlReceipt(BaseReceiptData data)
         {
-            this.m_Company = company;
-            this.m_totalAmount = totalAmount;
-            this.m_reportLines = reportLines;
-            this.m_tax = tax;
-            this.m_total = total;
+            this.data = data;
         }
     }
 }

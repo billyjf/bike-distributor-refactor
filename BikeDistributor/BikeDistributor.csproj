@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseReceiptData.cs" />
     <Compile Include="HtmlReceipt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -49,12 +50,22 @@
     <Compile Include="Bike.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="TextReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextReceipt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextReceiptData.cs" />
     <Compile Include="TupleList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HtmlReceipt.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HtmlReceipt.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextReceipt.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TextReceipt.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
