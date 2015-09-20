@@ -19,7 +19,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(Defy, 1));
 
             var check_receipt_against =
-                new TextReceipt(new BaseReceiptData(company,
+                new TextReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
                                                         {
@@ -41,7 +41,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(Elite, 1));
 
             var check_receipt_against =
-                new TextReceipt(new BaseReceiptData(company,
+                new TextReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
                                                         {
@@ -63,7 +63,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(DuraAce, 1));
 
             var check_receipt_against =
-                new TextReceipt(new BaseReceiptData(company,
+                new TextReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
                                                         {
@@ -85,7 +85,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(Defy, 1));
 
             var check_receipt_against = 
-                new HtmlReceipt(new BaseReceiptData(company,
+                new HtmlReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
                                                         {
@@ -107,7 +107,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(Elite, 1));
 
             var check_receipt_against = 
-                new HtmlReceipt(new BaseReceiptData(company,
+                new HtmlReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
                                                         {
@@ -129,7 +129,7 @@ namespace BikeDistributor.Test
             order.AddLine(new Line(DuraAce, 1));
 
             var check_receipt_against = 
-                new HtmlReceipt(new BaseReceiptData(company,
+                new HtmlReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
                                                                     {

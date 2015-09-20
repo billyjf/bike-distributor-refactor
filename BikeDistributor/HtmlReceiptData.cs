@@ -8,9 +8,9 @@ namespace BikeDistributor
 {
     partial class HtmlReceipt
     {
-        private BaseReceiptData data;
+        private ReceiptData data;
 
-        public HtmlReceipt(BaseReceiptData data)
+        public HtmlReceipt(ReceiptData data)
         {
             this.data = data;
         }

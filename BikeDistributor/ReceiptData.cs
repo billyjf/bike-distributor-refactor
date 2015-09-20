@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BikeDistributor
 {
-    public class BaseReceiptData
+    public class ReceiptData
     {
         public string m_Company;
         public string m_totalAmount;
@@ -14,7 +14,7 @@ namespace BikeDistributor
         public string m_tax;
         public string m_total;
 
-        public BaseReceiptData(string company,
+        public ReceiptData(string company,
                                string totalAmount,
                                TupleList<Line, string> reportLines,
                                string tax,

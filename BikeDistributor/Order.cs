@@ -66,7 +66,7 @@ namespace BikeDistributor
             }
             var tax = totalAmount * TaxRate;
 
-            var data = new BaseReceiptData(Company,
+            var data = new ReceiptData(Company,
                                            totalAmount.ToString("C"),
                                            reportLines,
                                            tax.ToString("C"),
