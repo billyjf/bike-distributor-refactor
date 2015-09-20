@@ -25,7 +25,7 @@ namespace BikeDistributor
         public string Receipt()
         {
             var totalAmount = 0d;
-            var result = new StringBuilder(string.Format("Order Receipt for {0}{1}", Company, Environment.NewLine));
+            var reportLines = new TupleList<Line, string>();
             foreach (var line in _lines)
             {
                 var thisAmount = 0d;
@@ -50,14 +50,19 @@ namespace BikeDistributor
                             thisAmount += line.Quantity * line.Bike.Price;
                         break;
                 }
-                result.AppendLine(string.Format("\t{0} x {1} {2} = {3}", line.Quantity, line.Bike.Brand, line.Bike.Model, thisAmount.ToString("C")));
+                reportLines.Add(line, thisAmount.ToString("C"));
                 totalAmount += thisAmount;
             }
-            result.AppendLine(string.Format("Sub-Total: {0}", totalAmount.ToString("C")));
             var tax = totalAmount * TaxRate;
-            result.AppendLine(string.Format("Tax: {0}", tax.ToString("C")));
-            result.Append(string.Format("Total: {0}", (totalAmount + tax).ToString("C")));
-            return result.ToString();
+
+            var receipt = new TextReceipt(new BaseReceiptData(Company,
+                                                              totalAmount.ToString("C"),
+                                                              reportLines,
+                                                              tax.ToString("C"),
+                                                              (totalAmount + tax).ToString("C")));
+            var receiptText = receipt.TransformText();
+
+            return receiptText;
         }
 
         public string HtmlReceipt()
