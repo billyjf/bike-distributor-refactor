@@ -3,3 +3,4 @@
 *.exe
 *.cache
 *.FileListAbsolute.txt
+*.vs
