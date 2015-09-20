@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+Order Receipt for <#= data.m_Company #>
+<# foreach(Tuple<Line, string>line in data.m_reportLines) { #>
+	<#= line.Item1.Quantity #> x <#= line.Item1.Bike.Brand #> <#= line.Item1.Bike.Model #> = <#= line.Item2 #>
+<# } #>
+Sub-Total: <#= data.m_totalAmount #>
+Tax: <#= data.m_tax #>
+Total: <#= data.m_total #>
