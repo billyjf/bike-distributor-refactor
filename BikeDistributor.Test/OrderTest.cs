@@ -40,7 +40,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(Defy, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new TextReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
@@ -52,7 +52,7 @@ namespace BikeDistributor.Test
                                                     "$72.50",
                                                     "$1,072.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(Elite, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new TextReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
@@ -76,7 +76,7 @@ namespace BikeDistributor.Test
                                                     "$145.00",
                                                     "$2,145.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(DuraAce, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new TextReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
@@ -100,7 +100,7 @@ namespace BikeDistributor.Test
                                                     "$362.50",
                                                     "$5,362.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(F1, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new TextReceipt(new ReceiptData(company,
                                                 "$20,000.00",
                                                 new TupleList<Line, string> {
@@ -124,7 +124,7 @@ namespace BikeDistributor.Test
                                                 "$1,450.00",
                                                 "$21,450.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(S5, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new TextReceipt(new ReceiptData(company,
                                                 "$32,000.00",
                                                 new TupleList<Line, string> {
@@ -148,7 +148,7 @@ namespace BikeDistributor.Test
                                                 "$2,320.00",
                                                 "$34,320.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.Text));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.Text));
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(Defy, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against = 
+            var checkReceiptAgainst = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$1,000.00",
                                                     new TupleList<Line, string> {
@@ -172,7 +172,7 @@ namespace BikeDistributor.Test
                                                     "$72.50",
                                                     "$1,072.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(Elite, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against = 
+            var checkReceiptAgainst = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$2,000.00",
                                                     new TupleList<Line, string> {
@@ -196,7 +196,7 @@ namespace BikeDistributor.Test
                                                     "$145.00",
                                                     "$2,145.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(DuraAce, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against = 
+            var checkReceiptAgainst = 
                 new HtmlReceipt(new ReceiptData(company,
                                                     "$5,000.00",
                                                     new TupleList<Line, string> {
@@ -220,7 +220,7 @@ namespace BikeDistributor.Test
                                                     "$362.50",
                                                     "$5,362.50")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(F1, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new HtmlReceipt(new ReceiptData(company,
                                                 "$20,000.00",
                                                 new TupleList<Line, string> {
@@ -244,7 +244,7 @@ namespace BikeDistributor.Test
                                                 "$1,450.00",
                                                 "$21,450.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]
@@ -256,7 +256,7 @@ namespace BikeDistributor.Test
             var testLine = new Line(S5, quantity);
             order.AddLine(testLine);
 
-            var check_receipt_against =
+            var checkReceiptAgainst =
                 new HtmlReceipt(new ReceiptData(company,
                                                 "$32,000.00",
                                                 new TupleList<Line, string> {
@@ -268,7 +268,7 @@ namespace BikeDistributor.Test
                                                 "$2,320.00",
                                                 "$34,320.00")).TransformText();
 
-            Assert.AreEqual(check_receipt_against, order.Receipt(Order.Format.HTML));
+            Assert.AreEqual(checkReceiptAgainst, order.Receipt(Order.Format.HTML));
         }
 
         [TestMethod]

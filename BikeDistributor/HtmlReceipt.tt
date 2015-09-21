@@ -5,14 +5,14 @@
 <#@ import namespace="System.Collections.Generic" #>
 <html>
 <body>
-    <h1>Order Receipt for <#= data.m_Company #></h1>
+    <h1>Order Receipt for <#= data.company #></h1>
     <ul>
-        <# foreach(Tuple<Line, string>line in data.m_reportLines) { #>
+        <# foreach(Tuple<Line, string>line in data.reportLines) { #>
         <li><#= line.Item1.Quantity #> x <#= line.Item1.Bike.Brand #> <#= line.Item1.Bike.Model #> = <#= line.Item2 #></li>
         <# } #>
     </ul>
-    <h3>Sub-Total: <#= data.m_totalAmount #></h3>
-    <h3>Tax: <#= data.m_tax #></h3>
-    <h2>Total: <#= data.m_total #></h2>
+    <h3>Sub-Total: <#= data.totalAmount #></h3>
+    <h3>Tax: <#= data.tax #></h3>
+    <h2>Total: <#= data.total #></h2>
 </body>
 </html>

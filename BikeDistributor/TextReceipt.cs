@@ -31,14 +31,14 @@ namespace BikeDistributor
             this.Write("Order Receipt for ");
             
             #line 6 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\TextReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_Company));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.company));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
             #line 7 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\TextReceipt.tt"
- foreach(Tuple<Line, string>line in data.m_reportLines) { 
+ foreach(Tuple<Line, string>line in data.reportLines) { 
             
             #line default
             #line hidden
@@ -80,21 +80,21 @@ namespace BikeDistributor
             this.Write("Sub-Total: ");
             
             #line 10 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\TextReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_totalAmount));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.totalAmount));
             
             #line default
             #line hidden
             this.Write("\r\nTax: ");
             
             #line 11 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\TextReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_tax));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.tax));
             
             #line default
             #line hidden
             this.Write("\r\nTotal: ");
             
             #line 12 "C:\Users\billy\Downloads\bike-distributor-refactor\BikeDistributor\TextReceipt.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(data.m_total));
+            this.Write(this.ToStringHelper.ToStringWithCulture(data.total));
             
             #line default
             #line hidden

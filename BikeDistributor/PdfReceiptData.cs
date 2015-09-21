@@ -24,10 +24,10 @@ namespace BikeDistributor
         public string GeneratePDF()
         {
             this.document = new Document();
-            var titleSubject = "Order Receipt for " + data.m_Company;
+            var titleSubject = "Order Receipt for " + data.company;
             this.document.Info.Title = titleSubject;
             this.document.Info.Subject = titleSubject;
-            this.document.Info.Author = this.data.m_Company;
+            this.document.Info.Author = this.data.company;
 
             DefineStyles();
             CreatePage();
@@ -79,7 +79,7 @@ namespace BikeDistributor
         {
             this.section = this.document.AddSection();
 
-            Paragraph paragraph = this.section.AddParagraph(String.Format("Order Receipt for {0}", this.data.m_Company));
+            Paragraph paragraph = this.section.AddParagraph(String.Format("Order Receipt for {0}", this.data.company));
             paragraph.Style = "h1";
             paragraph.Format.SpaceAfter = 3;
         }
@@ -89,7 +89,7 @@ namespace BikeDistributor
             Paragraph paragraph;
 
             // Iterate the invoice items
-            foreach(Tuple<Line, string>line in data.m_reportLines)
+            foreach(Tuple<Line, string>line in data.reportLines)
             {
                 paragraph = section.AddParagraph();
                 paragraph.AddCharacter(SymbolName.Tab);
@@ -102,11 +102,11 @@ namespace BikeDistributor
 
             paragraph = section.AddParagraph();
             paragraph.AddCharacter(SymbolName.ParaBreak);
-            paragraph = section.AddParagraph(String.Format("Sub-Total: {0}", data.m_totalAmount.ToString()));
+            paragraph = section.AddParagraph(String.Format("Sub-Total: {0}", data.totalAmount.ToString()));
             paragraph.Style = "h3";
-            paragraph = section.AddParagraph(String.Format("Tax: {0}", data.m_tax.ToString()));
+            paragraph = section.AddParagraph(String.Format("Tax: {0}", data.tax.ToString()));
             paragraph.Style = "h3";
-            paragraph = section.AddParagraph(String.Format("Total: {0}", data.m_total.ToString()));
+            paragraph = section.AddParagraph(String.Format("Total: {0}", data.total.ToString()));
             paragraph.Style = "h2";
         }
     }
