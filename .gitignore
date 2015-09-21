@@ -4,3 +4,6 @@
 *.cache
 *.FileListAbsolute.txt
 *.vs
+BikeDistributor/bin/Debug
+BikeDistributor.Test/bin/Debug
+packages/*

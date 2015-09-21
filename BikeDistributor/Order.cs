@@ -7,7 +7,7 @@ namespace BikeDistributor
 {
     public class Order
     {
-        public enum Format { Text, HTML };
+        public enum Format { Text, HTML, PDF };
 
         private const double TaxRate = .0725d;
         private readonly IList<Line> _lines = new List<Line>();
@@ -81,6 +81,10 @@ namespace BikeDistributor
                 return new TextReceipt(data).TransformText();
             else if (format == Format.HTML)
                 return new HtmlReceipt(data).TransformText();
+            else if (format == Format.PDF)
+            {
+                return new PdfReceipt(data).TransformText();
+            }
             else
                 throw new Exception("Unsupported format type!");
         }
